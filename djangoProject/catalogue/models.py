@@ -27,7 +27,7 @@ class ProductAttribute(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=32)
-    parent = models.ForeignKey('self',blank=True,null=True, on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -49,6 +49,8 @@ class Product(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products_cat')
     brand = models.ForeignKey(Brand, on_delete=models.PROTECT, related_name='product_brand')
+
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
