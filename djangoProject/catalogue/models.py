@@ -56,6 +56,11 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        permissions = [
+            ('user_score_permission', "user has score permission")
+        ]
+
 
 class ProductAttributeValue(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_val')
