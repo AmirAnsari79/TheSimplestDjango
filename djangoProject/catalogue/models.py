@@ -53,6 +53,11 @@ class Product(models.Model):
 
     is_active = models.BooleanField(default=True)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse('product-detail', args=[self.pk])
+
     def __str__(self):
         return self.title
 

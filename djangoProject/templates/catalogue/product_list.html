@@ -12,7 +12,7 @@
 <body>
 <p>{{ request.user.username }}</p>
 {% for product in products %}
-    <a href="{% url 'product-detail' product.pk %}">
+    <a href="{{ product.get_absolute_url }}">
         {{ product.title }}
 
     </a>
